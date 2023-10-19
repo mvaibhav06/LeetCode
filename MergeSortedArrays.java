@@ -1,27 +1,28 @@
 import java.util.Arrays;
 
 public class MergeSortedArrays {
-    public static void main(String[] args) {
-        int[] a = {2, 4, 5, 6, 7, 8,   0, 0, 0, 0, 0};
-        int[] b = {1, 2, 3, 4, 9};
-
-        int m = 6;
-        int n  = b.length;
+    public static void mergingSortedArrays(int[] num1, int[] num2, int m, int n){
         int i = m-1;
         int j = n-1;
-        int k = a.length-1;
+        int p = num1.length-1;
 
         while (j>=0){
-            if(i>=0 && a[i] >= b[j]){
-                a[k] = a[i];
+            if (i>=0 && num1[i] > num2[j]){
+                num1[p] = num1[i];
                 i--;
-                k--;
+                p--;
             }else {
-                a[k] = b[j];
+                num1[p] = num2[j];
                 j--;
-                k--;
+                p--;
             }
         }
+    }
+    public static void main(String[] args) {
+        int[] a = {0};
+        int[] b = {1};
+        mergingSortedArrays(a,b,0,1);
         System.out.println(Arrays.toString(a));
+
     }
 }
