@@ -68,8 +68,29 @@ public class CheckIfWordIsValid {
         }
         return str.length()==0 ? true:false;
     }
+    public static boolean isValidWord(String s){
+        Stack<Character> temp = new Stack<>();
+        for (int i=0; i<s.length(); i++){
+            temp.push(s.charAt(i));
+            char a = 0,b = 0,c = 0;
+            if (s.charAt(i) == 'c' && temp.size()>=3){
+                c = temp.pop();
+                b = temp.pop();
+                a = temp.pop();
+                if (c=='c' && b=='b' && a=='a'){
+
+                }else {
+                    temp.push(a);
+                    temp.push(b);
+                    temp.push(c);
+                }
+            }
+
+        }
+        return temp.isEmpty();
+    }
 
     public static void main(String[] args) {
-        System.out.println(isValid("aaababccbcbc"));
+        System.out.println(isValidWord("aaababccbcbc"));
     }
 }
